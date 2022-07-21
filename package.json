@@ -1,4 +1,22 @@
 {
+  "name": "social-network",
+  "version": "1.0.0",
+  "description": "Creating an API for my social network that uses a NoSQL database SO THAT my website can handle large amounts of data",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jide1012/Social-Network"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jide1012/Social-Network"
+  },
   "dependencies": {
     "express": "^4.18.1",
     "mongoose": "^6.4.5"

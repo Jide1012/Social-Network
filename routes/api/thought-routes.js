@@ -26,7 +26,7 @@ router
 //Getting thought ID and Reactions
 router
     .route('/:thoughtId/reactions')
-    .post(postNewReaction)
+    .post(addReaction)
     .delete(deleteExistingReaction);
 
     
