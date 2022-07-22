@@ -49,7 +49,7 @@ const userController = {
     },
 
 
-    putUserByID({ params, body }, res) {
+    putUserById({ params, body }, res) {
         User.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
             .then(dbUserData => {
                 if (!dbUserData) {
@@ -63,24 +63,22 @@ const userController = {
             });
     },
 
-
-    deleteUser({ params }, res) {
-        User.findOneAndDelete({ _id: params.id })
+    postNewFriend({ params }, res) {
+        User.findOneAndUpdate(
+            { _id: params.userId },
+            { $push: { friends: params.friendId } },
+            { new: true, runValidators: true }
+        )
             .then(dbUserData => {
                 if (!dbUserData) {
-                    res.status(404).json({ message: 'No Users Found' });
-                    return;
+                    return res.status(404).json({ message: 'No user found.' });
                 }
-                return Thoughts.deleteMany({ _id: { $in: dbUserData.thoughts } });
-            })
-            .then(() => {
-                res.json({ message: 'User and Thoughts Deleted!' });
-
+                res.json(dbUserData);
             })
             .catch(err => res.status(400).json(err));
     },
 
-    deleteExistingFriendById({ params }, res) {//
+    deleteUserById({ params }, res) {//
         User.findOneAndUpdate(
             { _id: params.userId },
             { $push: { friends: params.friendsId } },
@@ -90,7 +88,7 @@ const userController = {
             .catch(err => res.json(err));
     },
 
-    deleteExitingFriend({ params }, res) {
+    deleteExistingFriend({ params }, res) {
         User.findOneAndUpdate(
             { _id: params.userId },
             { $pull: { friends: params.friendsId } },
