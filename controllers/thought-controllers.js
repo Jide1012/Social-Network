@@ -7,7 +7,10 @@ const thoughtController = {
         Thought.find({})
             .select('-__v')
             .then(dbThoughtData => res.json(dbThoughtData))
-            .catch(err => res.status(400).json(err));
+            .catch(err => {
+                console.log(err)
+                res.status(400).json(err)
+            });
     },
 
 
@@ -38,7 +41,11 @@ const thoughtController = {
                     return res.status(404).json({ message: 'No user With this  found.' });
                 } res.json(dbUserData);
             })
-            .catch(err => res.status(400).json(err));
+            .catch(err => {
+                console.log(err)
+                res.status(400).json(err)
+
+            });
     },
 
 
