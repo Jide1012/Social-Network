@@ -15,21 +15,29 @@ const thoughtController = {
 
 
     getThoughtById({ params }, res) {
+        console.log(params.id)
         Thought.findOne({ _id: params.id })
+        
             .select('-__v')
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
+                    console.log()
                     return res.status(404).json({ message: 'No thought with this ID Found.' });
                 }
                 res.json(dbThoughtData);
             })
-            .catch(err => res.status(400).json(err));
+            .catch(err => {
+
+                res.status(400).json(err)
+            }
+            );
     },
 
     //Post Thoughts
     postNewThought({ body }, res) {
         Thought.create(body)
             .then(({ _id }) => {
+                console.log(_id)
                 return User.findOneAndUpdate(
                     { _id: body.userId },
                     { $push: { thoughts: _id } },

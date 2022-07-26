@@ -55,6 +55,7 @@ const userController = {
 
 
     putUserById({ params, body }, res) {
+        console.log(params, body)
         User.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
             .then(dbUserData => {
                 if (!dbUserData) {
@@ -64,11 +65,13 @@ const userController = {
                 res.json(dbUserData);
             })
             .catch(err => {
+                console.log(err)
                 res.status(400).json(err)
             });
     },
 
     postNewFriend({ params }, res) {
+        console.log(params)
         User.findOneAndUpdate(
             { _id: params.userId },
             { $push: { friends: params.friendId } },
@@ -86,20 +89,21 @@ const userController = {
             });
     },
 
-    deleteUserById({ params }, res) {//
-        User.findOneAndUpdate(
-            { _id: params.userId },
-            { $push: { friends: params.friendsId } },
-            { new: true }
-        )
-            .then(dbUserData => res.json(dbUserData))
-            .catch(err => res.json(err));
+    deleteUserById({ params }, res) {
+        User.findOneAndDelete({ _id: params.id })
+            .then(dbThoughtData => {
+                if (!dbThoughtData) {
+                    return res.status(404).json({ message: 'No Users with this ID found.' })
+                }
+                res.json(dbThoughtData);
+            })
+            .catch(err => res.status(400).json(err));
     },
 
     deleteExistingFriend({ params }, res) {
         User.findOneAndUpdate(
             { _id: params.userId },
-            { $pull: { friends: params.friendsId } },
+            { $pull: { friends: params.friendId } },
             { new: true, runValidators: true }
         )
             .then(dbUserData => {
