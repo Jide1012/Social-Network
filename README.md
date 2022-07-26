@@ -28,6 +28,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 The links below show this applications will be used.
 
 https://drive.google.com/file/d/1ZhGZuxkZ19KenvyqKY7mm_nKfnBquNpx/view
+
 https://drive.google.com/file/d/1_EfRVmQB-u9R7LLdao9r04kI-FV3evCV/view
 
 
