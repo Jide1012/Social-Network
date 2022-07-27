@@ -2,7 +2,7 @@
 
 
 
-# Jide-Adesanya-E-Commerce (![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Jide-Adesanya-Social-Network (![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   ## Description
 AS A social media startup
 I WANT an API for my social network that uses a NoSQL database
