@@ -27,10 +27,9 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
   ## Usage
 The links below show this applications will be used.
 
-https://drive.google.com/file/d/1ZhGZuxkZ19KenvyqKY7mm_nKfnBquNpx/view
+https://www.youtube.com/watch?v=1WaAx4b1OPI
 
-https://drive.google.com/file/d/1_EfRVmQB-u9R7LLdao9r04kI-FV3evCV/view
-
+https://www.youtube.com/watch?v=PYsClh67-8o
 
   ## License
   
